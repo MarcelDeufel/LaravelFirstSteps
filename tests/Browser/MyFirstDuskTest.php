@@ -52,7 +52,7 @@ class MyFirstDuskTest extends DuskTestCase
         $result = $driver->findElement(WebDriverBy::tagName('h1'))->getText();
         if($result != 'Keine Treffer!')
         {
-            $href = $this->getElementOfList($driver, 'Alphatier GmbH');
+            $href = $this->getElementOfList($driver, 'ALPHATIER GmbH');
             if($href != '' || $href != null){
                 $driver->get($href);
                 $driver->wait(250, 1000)->until (
@@ -60,11 +60,16 @@ class MyFirstDuskTest extends DuskTestCase
                     );
                 $arrayWithResults = $this->getDetails($driver);
                 $originalArray = array();
-                $originalArray['name'] = 'Alphatier GmbH';
-                $originalArray['street'] = 'Karlstraße 45a';
+                $originalArray['name'] = 'ALPHATIER GmbH';
+                $originalArray['street'] = 'Karlstr. 45a';
                 $originalArray['phonenumber'] = '0721 41518';
                 $originalArray['postalCode'] = '76133';
                 $originalArray['city'] = 'Karlsruhe';
+                $this->assertEquals($originalArray['name'], $arrayWithResults['name']);
+                $this->assertEquals($originalArray['street'], $arrayWithResults['street']);
+                $this->assertEquals($originalArray['postalCode'], $arrayWithResults['postalCode']);
+                $this->assertEquals($originalArray['city'], $arrayWithResults['city']);
+                $this->assertEquals($originalArray['phonenumber'], $arrayWithResults['phonenumber']);
                 $this->compareData($originalArray, $arrayWithResults);
             }
         } else {
