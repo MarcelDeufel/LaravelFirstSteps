@@ -34,7 +34,7 @@ class MyFirstDuskTest extends DuskTestCase
         // Setting Character Set
         set_time_limit(0);
 
-        $host = 'http://selenium-ch:4444/wd/hubSelect'; 
+        $host = 'http://localhost:4444/wd/hub';
 		
 		// open a connection
         $capabilities = DesiredCapabilities::chrome();
