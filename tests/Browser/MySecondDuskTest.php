@@ -26,9 +26,10 @@ class MySecondDuskTest extends DuskTestCase
 		// open a connection
         $capabilities = DesiredCapabilities::chrome();
         //$driver = RemoteWebDriver::create($host, $capabilities, 60000, 60000);
+        $driver = $this->driver();
         //$driver->get('https://web2.cylex.de/firma-home/jonny-m--club-koenigstrasse-fitnessstudio-stuttgart-11064810.html');
         //$driver->get('https://web2.cylex.de/firma-home/alphatier-gmbh-11294606.html');
-        $this->driver()->get('https://www.gelbeseiten.de/');
+        $driver->get('https://www.gelbeseiten.de/');
 
         $this->setNameOfInputField($driver, 'Alphatier GmbH');
         $this->setAdress($driver, '76133');
