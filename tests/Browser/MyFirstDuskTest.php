@@ -6,9 +6,10 @@ namespace Facebook\WebDriver;
     use Facebook\WebDriver\Remote\RemoteWebDriver;
     use Spatie\Async\Process;
     require_once('vendor/autoload.php');
+    use Tests\DuskTestCase;
+    use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-use Tests\DuskTestCase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+
 
 class MyFirstDuskTest extends DuskTestCase
 {
@@ -71,6 +72,7 @@ class MyFirstDuskTest extends DuskTestCase
                 $this->assertEquals($originalArray['city'], $arrayWithResults['city']);
                 $this->assertEquals($originalArray['phonenumber'], $arrayWithResults['phonenumber']);
                 $this->compareData($originalArray, $arrayWithResults);
+                $driver->quit();
             }
         } else {
             echo 'No data was found with these search criteria!';
