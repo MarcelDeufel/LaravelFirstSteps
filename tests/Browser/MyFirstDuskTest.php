@@ -42,7 +42,7 @@ class MyFirstDuskTest extends DuskTestCase
         $driver = RemoteWebDriver::create($host, $capabilities, 60000, 60000);
         //$driver->get('https://web2.cylex.de/firma-home/jonny-m--club-koenigstrasse-fitnessstudio-stuttgart-11064810.html');
         //$driver->get('https://web2.cylex.de/firma-home/alphatier-gmbh-11294606.html');
-        $driver->get('https://www.stadtbranchenbuch.com/');
+        $this->get('https://www.stadtbranchenbuch.com/');
 
         $this->setNameInBrowser($driver, 'Alphatier GmbH');
         $this->setAdress($driver, '76133');
